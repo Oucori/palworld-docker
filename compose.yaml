@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  palworld:
+    build:
+      context: .
+    volumes:
+      - ./app:/app
+    ports:
+        - "6587:6587"
+    restart: unless-stopped
+    command: ["/app/Craftopia.x86_64"]
+
+networks: {}
