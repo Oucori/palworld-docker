@@ -4,10 +4,10 @@ services:
     build:
       context: .
     volumes:
-      - ./app:/app
+      - ./server:/server
     ports:
         - "6587:6587"
     restart: unless-stopped
-    command: ["/app/Craftopia.x86_64"]
+    command: ["/server/PalServer.sh"]
 
 networks: {}

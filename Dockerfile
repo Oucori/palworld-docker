@@ -38,16 +38,20 @@ RUN set -eux; \
     \
     apt-get autoremove -qy && apt-get clean -y && rm -rf /var/cache/debconf/*.dat-old && rm -rf /var/cache/apt/*;
 
+RUN useradd -ms /bin/bash newuser
+WORKDIR /home/newuser
+USER newuser
+
 # Fix missing directories and libraries
 RUN set -eux; \
-    mkdir -p /root/.steam; \
+    mkdir -p /home/newuser/.steam; \
     steamcmd +quit; \
-    ln -s /root/.local/share/Steam/steamcmd/linux32 /root/.steam/sdk32; \
-    ln -s /root/.local/share/Steam/steamcmd/linux64 /root/.steam/sdk64; \
-    ln -s /root/.steam/sdk32/steamclient.so /root/.steam/sdk32/steamservice.so; \
-    ln -s /root/.steam/sdk64/steamclient.so /root/.steam/sdk64/steamservice.so
+    ln -s /home/newuser/.local/share/Steam/steamcmd/linux32 /home/newuser/.steam/sdk32; \
+    ln -s /home/newuser/.local/share/Steam/steamcmd/linux64 /home/newuser/.steam/sdk64; \
+    ln -s /home/newuser/.steam/sdk32/steamclient.so /home/newuser/.steam/sdk32/steamservice.so; \
+    ln -s /home/newuser/.steam/sdk64/steamclient.so /home/newuser/.steam/sdk64/steamservice.so;
 
-RUN steamcmd +force_install_dir /app +login anonymous +app_update 480 +quit;
+#RUN steamcmd +force_install_dir /home/newuser/server +login anonymous +app_update 2394010 +quit;
 
 COPY ./docker-entrypoint /docker-entrypoint
 
