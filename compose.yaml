@@ -4,10 +4,16 @@ services:
     build:
       context: .
     volumes:
-      - ./app:/app
+      - ./server:/server
+    user: "1000"
     ports:
-        - "6587:6587"
+      - 8211:8211/udp
+      - 27015:27015/udp
     restart: unless-stopped
-    command: ["/app/Craftopia.x86_64"]
-
+    command:
+      - /server/PalServer.sh
+      - -useperfthreads
+      - -NoAsyncLoadingThread
+      - -UseMultithreadForDS
+      - EpicApp=PalServer
 networks: {}
