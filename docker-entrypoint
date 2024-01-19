@@ -3,6 +3,6 @@
 
 set -eux
 
-steamcmd +force_install_dir /app +login anonymous +app_update 1670340 +quit
+steamcmd +force_install_dir /app +login anonymous +app_update 2394010 +quit
 
 exec "$@"
