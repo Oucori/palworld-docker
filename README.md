@@ -14,5 +14,6 @@ This is how it looks if it worked:
 Composing the Docker will create a server folder.
 
 ### Copy the DefaultConfiguration to your Configuration
-Copy from `server/DefaultPalWorldSettings.ini` to `server/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini`
+Copy from `server/DefaultPalWorldSettings.ini` to `server/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini`.
+
 Then you can edit `server/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini` to fit your needs.
