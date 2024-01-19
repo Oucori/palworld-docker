@@ -1,6 +1,6 @@
 ## How to use
 
-Basically just do:
+Basically clone the repository and just do:
 ```docker compose up -d```
 
 You can check if the Server is running by using:
