@@ -6,8 +6,8 @@ services:
     volumes:
       - ./server:/server
     ports:
-        - "6587:6587"
+        - "8211:8211"
     restart: unless-stopped
-    command: ["/server/PalServer.sh"]
+    command: ["/server/PalServer.sh", "-useperfthreads", "-NoAsyncLoadingThread", "-UseMultithreadForDS"]
 
 networks: {}
